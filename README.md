@@ -220,11 +220,14 @@ A: 这些功能仅在Unity编辑器中可用。确保你在编辑器模式下查
 > 💡 **提示**: 如果你想安装特定版本，可以在URL后添加版本标签，例如：
 > `https://github.com/shee-py/Unity-3D-Tilemap-Editor.git#v1.0.0`
 
-### 方法3：克隆到Assets文件夹
+### 方法3：本地开发（开发者模式）
+如果你想要修改包的源代码或进行本地开发：
 ```bash
-cd YourUnityProject/Assets
+cd YourUnityProject/Assets/Plugins
 git clone https://github.com/shee-py/Unity-3D-Tilemap-Editor.git TilemapEditor
 ```
+
+> ⚠️ **注意**: 此方法会将包安装在`Assets/Plugins/`目录下，适合需要修改源代码的开发者使用。
 
 ## 贡献指南
 

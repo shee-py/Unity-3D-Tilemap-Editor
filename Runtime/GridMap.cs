@@ -652,7 +652,7 @@ namespace TilemapEditor.Runtime
         {
 #if UNITY_EDITOR
             // 使用反射来避免直接引用Editor命名空间
-            var editorWindowType = System.Type.GetType("TilemapEditor.Editor.TilemapEditorWindow, Assembly-CSharp-Editor-firstpass");
+            var editorWindowType = System.Type.GetType("TilemapEditor.Editor.TilemapEditorWindow, TilemapEditor.Editor");
             if (editorWindowType == null)
             {
                 // 尝试从当前程序集查找

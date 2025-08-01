@@ -1,0 +1,17 @@
+{
+    "name": "TilemapEditor.Runtime",
+    "rootNamespace": "TilemapEditor",
+    "references": [
+        "Unity.Mathematics",
+        "Sirenix.OdinInspector"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
