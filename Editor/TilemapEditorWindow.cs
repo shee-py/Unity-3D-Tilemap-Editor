@@ -761,6 +761,10 @@ namespace TilemapEditor.Editor
             {
                 return packageInfo.assetPath;
             }
+            else
+            {
+                return "Packages/com.ethan.tilemap-editor-3d";
+            }
 
             // 如果是从Plugins文件夹运行，直接返回Plugins路径
             return "Assets/Plugins/TilemapEditor";
