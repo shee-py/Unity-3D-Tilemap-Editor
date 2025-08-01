@@ -256,21 +256,44 @@ namespace TilemapEditor.Editor
         /// </summary>
         private static void PickTile(TilemapEditorWindow editorWindow, Event e)
         {
+            // 基本空值检查
+            if (editorWindow?.CurrentGridMap == null)
+            {
+                Debug.LogWarning("拾取器无法使用：未选择GridMap");
+                return;
+            }
+
             Ray mouseRay = HandleUtility.GUIPointToWorldRay(e.mousePosition);
             if (Physics.Raycast(mouseRay, out RaycastHit hit))
             {
                 TileInfoComponent tileInfo = hit.collider.GetComponent<TileInfoComponent>();
-                if (tileInfo != null && tileInfo.ParentGridMap == editorWindow.CurrentGridMap)
+                if (tileInfo != null && 
+                    tileInfo.ParentGridMap != null && 
+                    tileInfo.ParentGridMap == editorWindow.CurrentGridMap)
                 {
                     TileData tileData = tileInfo.ParentGridMap.GetTileData(tileInfo.GridPosition);
                     if (tileData != null && tileData.IsValid())
                     {
+                        // 检查瓦片库是否存在 - 这是Packages安装模式下的关键检查
+                        if (tileInfo.ParentGridMap.CurrentPalette == null)
+                        {
+                            Debug.LogWarning("拾取器无法使用：当前GridMap没有设置瓦片库(TilePalette)。请在GridMap组件中设置Current Palette字段");
+                            return;
+                        }
+
                         // 在瓦片库中找到对应的索引
                         int paletteIndex = tileInfo.ParentGridMap.CurrentPalette.GetPrefabIndexByGUID(tileData.PrefabGUID);
                         if (paletteIndex != -1)
                         {
                             // 调用窗口方法来更新状态
                             editorWindow.SelectTile(paletteIndex, tileData.Rotation);
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"拾取的瓦片未在当前瓦片库中找到。这可能是因为：\n" +
+                                           $"1. 瓦片预制体不在当前TilePalette中\n" +
+                                           $"2. 程序集安装位置差异导致的GUID解析问题\n" +
+                                           $"瓦片GUID: {tileData.PrefabGUID}");
                         }
                     }
                 }

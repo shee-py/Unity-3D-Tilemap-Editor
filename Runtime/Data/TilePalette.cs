@@ -111,14 +111,29 @@ namespace TilemapEditor.Runtime
         /// </summary>
         public int GetPrefabIndexByGUID(string guid)
         {
+            if (string.IsNullOrEmpty(guid))
+                return -1;
+
             for (int i = 0; i < tilePrefabs.Count; i++)
             {
                 if (tilePrefabs[i] == null) continue;
 #if UNITY_EDITOR
-                string prefabGUID = UnityEditor.AssetDatabase.AssetPathToGUID(UnityEditor.AssetDatabase.GetAssetPath(tilePrefabs[i]));
-                if (prefabGUID == guid)
+                try
                 {
-                    return i;
+                    string assetPath = UnityEditor.AssetDatabase.GetAssetPath(tilePrefabs[i]);
+                    if (string.IsNullOrEmpty(assetPath)) continue;
+                    
+                    string prefabGUID = UnityEditor.AssetDatabase.AssetPathToGUID(assetPath);
+                    if (prefabGUID == guid)
+                    {
+                        return i;
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    // 在Packages安装模式下，AssetDatabase API可能会有异常
+                    UnityEngine.Debug.LogWarning($"获取预制体GUID时出错 (索引 {i}): {ex.Message}");
+                    continue;
                 }
 #endif
             }
