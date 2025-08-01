@@ -755,18 +755,27 @@ namespace TilemapEditor.Editor
         /// </summary>
         private string GetPackageRootPath()
         {
-            // 首先尝试从Unity Package Manager获取包路径
-            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssetPath("Assets/Plugins/TilemapEditor");
+            // 获取当前脚本文件的路径来动态确定包位置
+            string[] guids = AssetDatabase.FindAssets("TilemapEditorWindow t:Script");
+            foreach (string guid in guids)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                if (assetPath.Contains("TilemapEditorWindow.cs"))
+                {
+                    // 从脚本路径推断包根路径
+                    string packagePath = assetPath.Replace("/Editor/TilemapEditorWindow.cs", "");
+                    return packagePath;
+                }
+            }
+
+            // 备用方案：尝试通过PackageManager API查找包
+            var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForPackageName("com.ethan.tilemap-editor-3d");
             if (packageInfo != null)
             {
                 return packageInfo.assetPath;
             }
-            else
-            {
-                return "Packages/com.ethan.tilemap-editor-3d";
-            }
 
-            // 如果是从Plugins文件夹运行，直接返回Plugins路径
+            // 最终备用方案：假设在Plugins文件夹
             return "Assets/Plugins/TilemapEditor";
         }
         #endregion
