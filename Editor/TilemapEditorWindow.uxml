@@ -1,0 +1,77 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+    editor-extension-mode="True">
+    <!-- 样式表将通过C#代码动态加载，以支持包的路径变化 -->
+
+    <ui:ScrollView name="main-scroll-view" class="main-container">
+        <!-- Palette Selection -->
+        <ui:Foldout text="Palette Selection" name="palette-foldout" class="section-foldout">
+            <ui:HelpBox name="palette-help" text="请选择一个瓦片库来开始编辑" message-type="Info" />
+            <uie:ObjectField label="瓦片库" name="palette-field"
+                type="TilemapEditor.Data.TilePalette, Assembly-CSharp-firstpass" />
+            <ui:IntegerField label="当前选中瓦片索引" name="selected-tile-index" readonly="true" value="-1" />
+        </ui:Foldout>
+
+        <!-- Tile Palette -->
+        <ui:Foldout text="瓦片库" name="tile-palette-foldout" class="section-foldout">
+            <ui:HelpBox text="从下方选择要绘制的瓦片预制体" message-type="Info" />
+            <ui:Label text="瓦片数量: 0" name="tile-count-label" class="tile-count" />
+            <ui:ScrollView name="tile-palette-scroll" class="tile-palette-container">
+                <ui:VisualElement name="tile-palette-grid" class="tile-grid" />
+            </ui:ScrollView>
+            <ui:Label text="未选择瓦片" name="selected-tile-info" class="selected-tile-info" />
+        </ui:Foldout>
+
+        <!-- Grid Map -->
+        <ui:Foldout text="Grid Map" name="gridmap-foldout" class="section-foldout">
+            <uie:ObjectField label="网格地图" name="gridmap-field"
+                type="TilemapEditor.Runtime.GridMap, Assembly-CSharp-firstpass" />
+            <ui:VisualElement name="gridmap-actions" class="button-group">
+                <ui:Button text="加载地图" name="load-map-btn" class="action-button" />
+                <ui:Button text="保存地图" name="save-map-btn" class="action-button" />
+                <ui:Button text="清空所有" name="clear-all-btn" class="action-button danger-button" />
+            </ui:VisualElement>
+            <ui:Button text="创建新的网格地图" name="create-gridmap-btn" class="create-button" />
+        </ui:Foldout>
+
+        <!-- Editing Tools -->
+        <ui:Foldout text="编辑工具" name="tools-foldout" class="section-foldout">
+            <ui:HelpBox text="选择编辑模式：绘制模式用于放置瓦片，擦除模式用于删除瓦片" message-type="Info" />
+            <ui:VisualElement name="tool-mode-group" class="button-group">
+                <ui:Button text="绘制模式" name="paint-mode-btn" class="tool-button paint-button" />
+                <ui:Button text="擦除模式" name="erase-mode-btn" class="tool-button erase-button" />
+                <ui:Button text="拾取器" name="picker-mode-btn" class="tool-button picker-button" />
+            </ui:VisualElement>
+
+            <ui:HelpBox text="高级工具提供更复杂的绘制功能：油漆桶填充、矩形填充、直线绘制、圆形绘制" message-type="Info" />
+            <uie:EnumField label="高级工具" name="advanced-tool-field"
+                type="TilemapEditor.Editor.AdvancedTool, Assembly-CSharp-Editor-firstpass" />
+
+            <ui:HelpBox text="智能堆叠：开启后，绘制新瓦片时会自动检测下方瓦片并向上堆叠一层。关闭后，仅在当前编辑层级绘制。智能堆叠原理是射线检测，所以需要瓦片预制体包含Collider组件，如果瓦片预制体没有Collider组件，则请关闭这个功能" message-type="Info" />
+            <ui:Toggle label="智能堆叠" name="smart-stacking-toggle" />
+        </ui:Foldout>
+
+        <!-- Layer Control -->
+        <ui:Foldout text="层级控制" name="layer-foldout" class="section-foldout">
+            <ui:HelpBox text="层级控制：设置当前编辑的Y轴层级高度" message-type="Info" />
+            <ui:VisualElement name="layer-control-group" class="layer-control">
+                <ui:Button text="▼" name="decrease-layer-btn" class="layer-button" />
+                <ui:IntegerField label="当前层级" name="current-layer-field" />
+                <ui:Button text="▲" name="increase-layer-btn" class="layer-button" />
+            </ui:VisualElement>
+            <ui:Toggle label="层级隔离" name="layer-isolation-toggle" />
+        </ui:Foldout>
+
+        <!-- Rotation Control -->
+        <ui:Foldout text="旋转控制" name="rotation-foldout" class="section-foldout">
+            <ui:HelpBox text="旋转控制：调整放置瓦片的旋转角度" message-type="Info" />
+            <ui:VisualElement name="rotation-control-group" class="rotation-control">
+                <ui:Label text="0°" name="rotation-display" class="rotation-label" />
+                <ui:Button text="重置" name="reset-rotation-btn" class="rotation-button" />
+                <ui:Button text="90°" name="rotate-90-btn" class="rotation-button" />
+            </ui:VisualElement>
+        </ui:Foldout>
+
+        <!-- Tile Palette -->
+
+    </ui:ScrollView>
+</ui:UXML> 

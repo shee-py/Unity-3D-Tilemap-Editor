@@ -1,0 +1,41 @@
+{
+    "name": "com.ethan.tilemap-editor-3d",
+    "version": "1.0.0",
+    "displayName": "3D Tilemap Editor",
+    "description": "一个功能强大的Unity编辑器工具，用于快速创建和编辑3D瓦片地图。支持智能堆叠、多层编辑、撤销重做等功能。",
+    "unity": "2021.3",
+    "unityRelease": "0f1",
+    "documentationUrl": "https://github.com/shee-py/Unity-3D-Tilemap-Editor#readme",
+    "changelogUrl": "https://github.com/shee-py/Unity-3D-Tilemap-Editor/blob/main/CHANGELOG.md",
+    "licensesUrl": "https://github.com/shee-py/Unity-3D-Tilemap-Editor/blob/main/LICENSE",
+    "keywords": [
+        "tilemap",
+        "editor",
+        "3d",
+        "level-design",
+        "unity",
+        "tool",
+        "editor-tool",
+        "gamedev",
+        "tiles",
+        "grid"
+    ],
+    "author": {
+        "name": "Ethan",
+        "email": "2246496413@qq.com",
+        "url": "https://github.com/shee-py"
+    },
+    "type": "tool",
+    "hideInEditor": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shee-py/Unity-3D-Tilemap-Editor.git"
+    },
+    "samples": [
+        {
+            "displayName": "Sample Tile Palettes",
+            "description": "示例瓦片库和预制体",
+            "path": "Samples~/SamplePalettes"
+        }
+    ]
+}

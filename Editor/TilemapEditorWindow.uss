@@ -1,0 +1,232 @@
+/* 主容器样式 */
+.main-container {
+    padding: 10px;
+    background-color: rgba(56, 56, 56, 1);
+}
+
+/* 折叠组样式 */
+.section-foldout {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: rgba(70, 70, 70, 0.3);
+    border-radius: 4px;
+}
+
+.section-foldout>.unity-foldout__content {
+    padding: 8px;
+}
+
+/* 按钮组样式 */
+.button-group {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px 0;
+}
+
+.tool-button {
+    flex: 1;
+    margin: 2px;
+    height: 30px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.paint-button {
+    background-color: rgba(0, 150, 0, 0.8);
+}
+
+.paint-button:hover {
+    background-color: rgba(0, 180, 0, 1);
+}
+
+.erase-button {
+    background-color: rgba(150, 0, 0, 0.8);
+}
+
+.erase-button:hover {
+    background-color: rgba(180, 0, 0, 1);
+}
+
+.action-button {
+    flex: 1;
+    margin: 2px;
+    height: 25px;
+    font-size: 11px;
+    background-color: rgba(100, 100, 100, 0.8);
+    border-radius: 3px;
+}
+
+.action-button:hover {
+    background-color: rgba(120, 120, 120, 1);
+}
+
+.danger-button {
+    background-color: rgba(150, 50, 50, 0.8);
+}
+
+.danger-button:hover {
+    background-color: rgba(180, 60, 60, 1);
+}
+
+.create-button {
+    height: 35px;
+    font-size: 13px;
+    -unity-font-style: bold;
+    background-color: rgba(50, 150, 50, 0.8);
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+.create-button:hover {
+    background-color: rgba(60, 180, 60, 1);
+}
+
+/* 层级控制样式 */
+.layer-control {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.layer-button {
+    width: 30px;
+    height: 25px;
+    font-size: 14px;
+    -unity-font-style: bold;
+    background-color: rgba(80, 120, 160, 0.8);
+    border-radius: 3px;
+}
+
+.layer-button:hover {
+    background-color: rgba(100, 140, 180, 1);
+}
+
+/* 旋转控制样式 */
+.rotation-control {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.rotation-label {
+    font-size: 14px;
+    -unity-font-style: bold;
+    color: rgba(255, 255, 255, 0.9);
+    min-width: 40px;
+    -unity-text-align: middle-center;
+}
+
+.rotation-button {
+    width: 60px;
+    height: 25px;
+    font-size: 11px;
+    background-color: rgba(120, 80, 160, 0.8);
+    border-radius: 3px;
+}
+
+.rotation-button:hover {
+    background-color: rgba(140, 100, 180, 1);
+}
+
+/* 瓦片库样式 */
+.tile-count {
+    font-size: 12px;
+    -unity-font-style: bold;
+    color: rgba(200, 200, 200, 1);
+    margin: 5px 0;
+}
+
+.tile-palette-container {
+    max-height: 200px;
+    background-color: rgba(40, 40, 40, 0.8);
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgba(100, 100, 100, 0.5);
+    margin: 5px 0;
+}
+
+.tile-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+.tile-button {
+    width: 64px;
+    height: 64px;
+    margin: 2px;
+    border-radius: 4px;
+    border-width: 2px;
+    border-color: rgba(100, 100, 100, 0.5);
+    background-color: rgba(60, 60, 60, 0.8);
+}
+
+.tile-button:hover {
+    border-color: rgba(150, 150, 150, 0.8);
+    background-color: rgba(80, 80, 80, 1);
+}
+
+.tile-button.selected {
+    border-color: rgba(0, 255, 255, 1);
+    background-color: rgba(0, 150, 150, 0.3);
+}
+
+.selected-tile-info {
+    font-size: 11px;
+    color: rgba(180, 180, 180, 1);
+    background-color: rgba(50, 50, 50, 0.8);
+    padding: 5px;
+    border-radius: 3px;
+    margin: 5px 0;
+}
+
+/* 帮助框样式覆盖 */
+.unity-help-box {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* 对象字段样式 */
+.unity-object-field {
+    margin: 3px 0;
+}
+
+/* 整数字段样式 */
+.unity-integer-field {
+    margin: 3px 0;
+}
+
+/* 枚举字段样式 */
+.unity-enum-field {
+    margin: 5px 0;
+}
+
+/* 切换开关样式 */
+.unity-toggle {
+    margin: 5px 0;
+}
+
+/* 滚动视图样式 */
+.unity-scroll-view {
+    background-color: transparent;
+}
+
+.unity-scroll-view__content-container {
+    padding: 0;
+}
+
+/* 标签样式 */
+.unity-label {
+    color: rgba(210, 210, 210, 1);
+}
+
+/* 按钮选中状态 */
+.tool-button.selected {
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(100, 200, 255, 0.3);
+}

@@ -1,0 +1,30 @@
+{
+	"nodes":[
+		{"id":"tile_data","type":"text","text":"TileData (ScriptableObject)\n\n- GameObject Prefab\n- **拥有唯一的 Asset GUID**\n- 定义了单个瓦片的基础数据","x":370,"y":-640,"width":300,"height":160,"color":"4"},
+		{"id":"tile_palette","type":"text","text":"TilePalette (ScriptableObject)\n\n- List<TileData>\n- 作为瓦片的集合，形成调色板","x":-242,"y":-620,"width":300,"height":120,"color":"4"},
+		{"id":"advanced_tools","type":"text","text":"AdvancedTools\n\n- 实现笔刷、橡皮擦等工具逻辑\n- 从 EditorWindow 获取状态\n- 调用 GridMap 的方法","x":-242,"y":-210,"width":300,"height":175,"color":"2"},
+		{"id":"interaction_handler","type":"text","text":"SceneInteractionHandler\n\n- OnSceneGUI 监听场景事件\n- Raycast 计算网格坐标\n- 调用 AdvancedTools","x":-242,"y":140,"width":300,"height":110,"color":"2"},
+		{"id":"user_input_scene","type":"text","text":"用户输入\n(在 Scene View 中点击/拖拽)","x":-680,"y":152,"width":300,"height":80,"color":"5"},
+		{"id":"editor_window","type":"text","text":"TilemapEditorWindow (UI)\n\n- 选择 GridMap & TilePalette\n- 显示调色板内容\n- 选择当前笔刷 TileData 和工具","x":-662,"y":-412,"width":300,"height":170,"color":"2"},
+		{"id":"saved_data_file","type":"text","text":"持久化数据 (map.json)\n\n- 存储 MapSaveData 的 JSON 字符串\n- 通过 TileData 的 GUID 来引用资产","x":1320,"y":-214,"width":300,"height":195,"color":"4"},
+		{"id":"grid_map","type":"text","text":"GridMap (MonoBehaviour)\n\n- Dictionary<Vector3Int, TileData>\n- AddTile / RemoveTile\n- Instantiate / Destroy Prefabs\n- **SaveMap() / LoadMap()**","x":360,"y":-242,"width":320,"height":240,"color":"3"},
+		{"id":"map_save_data_struct","type":"text","text":"MapSaveData (C# 内存对象)\n\n- List<TileSaveData>\n- TileSaveData 包含:\n  - Vector3Int position\n  - string tileDataGUID","x":840,"y":-219,"width":300,"height":200,"color":"1"},
+		{"id":"tile_info_component","type":"text","text":"TileInfoComponent (MonoBehaviour)\n\n- 附加在实例化的瓦片上\n- 存储 GridPosition\n- 引用 ParentGridMap\n- 用于在场景中反向查找数据，例如实现拾取器工具","x":370,"y":232,"width":300,"height":240,"color":"3"},
+		{"id":"scene_view_update","type":"text","text":"场景视觉更新\n(实例化的 Prefab)","x":980,"y":312,"width":320,"height":80,"color":"5"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"tile_data","fromSide":"left","toNode":"tile_palette","toSide":"right","label":"被包含于"},
+		{"id":"e2","fromNode":"tile_palette","fromSide":"left","toNode":"editor_window","toSide":"top","label":"被读取和选择"},
+		{"id":"e3","fromNode":"editor_window","fromSide":"bottom","toNode":"advanced_tools","toSide":"left","label":"提供状态\n(Selected Tile, GridMap)"},
+		{"id":"e4","fromNode":"user_input_scene","fromSide":"right","toNode":"interaction_handler","toSide":"left","label":"触发事件"},
+		{"id":"e5","fromNode":"interaction_handler","fromSide":"top","toNode":"advanced_tools","toSide":"bottom","label":"调用工具(传入坐标)"},
+		{"id":"e6","fromNode":"advanced_tools","fromSide":"right","toNode":"grid_map","toSide":"left","label":"调用 Add/RemoveTile"},
+		{"id":"e9","fromNode":"grid_map","fromSide":"top","toNode":"tile_data","toSide":"bottom","label":"读取 Prefab"},
+		{"id":"e10","fromNode":"grid_map","fromSide":"bottom","toNode":"map_save_data_struct","toSide":"bottom","label":"保存时: 转换为"},
+		{"id":"e12","fromNode":"saved_data_file","fromSide":"top","toNode":"map_save_data_struct","toSide":"top","label":"反序列化为对象"},
+		{"id":"e13","fromNode":"map_save_data_struct","fromSide":"top","toNode":"grid_map","toSide":"top","label":"加载时: 查找GUID并重建"},
+		{"id":"e14","fromNode":"grid_map","fromSide":"bottom","toNode":"tile_info_component","toSide":"top","label":"实例化时添加并设置"},
+		{"id":"e15","fromNode":"tile_info_component","fromSide":"right","toNode":"scene_view_update","toSide":"left","label":"作为组件附加于"},
+		{"id":"e11","fromNode":"map_save_data_struct","fromSide":"bottom","toNode":"saved_data_file","toSide":"bottom","label":"序列化为 JSON"}
+	]
+}
