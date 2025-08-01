@@ -13,6 +13,25 @@
 - 实现瓦片动画系统
 - 支持多人协作编辑
 
+## [1.0.1] - 2025-08-01
+
+### 修复
+- **[重大修复]** 解决远程包安装时的编译错误
+- 将Data命名空间类移动到Runtime程序集中
+- 修复Assembly Definition文件配置问题
+- 更新所有命名空间引用以支持远程包安装
+
+### 改进
+- 添加智能资源加载系统，同时支持本地和远程包路径
+- 优化包结构以符合Unity Package标准
+- 添加Samples~/和Documentation~/目录
+- 更新package.json配置，支持示例导入
+
+### 技术变更
+- 创建TilemapEditor.Runtime.asmdef和TilemapEditor.Editor.asmdef
+- 将TileData和TilePalette类从TilemapEditor.Data移动到TilemapEditor.Runtime命名空间
+- 修复过时的API使用（FindObjectOfType → FindFirstObjectByType）
+
 ## [1.0.0] - 2024-12-20
 
 ### 新增

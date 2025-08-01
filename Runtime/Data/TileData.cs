@@ -1,7 +1,7 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-namespace TilemapEditor.Data
+namespace TilemapEditor.Runtime
 {
     /// <summary>
     /// 存储单个瓦片的信息，包括网格坐标、预制体GUID和旋转

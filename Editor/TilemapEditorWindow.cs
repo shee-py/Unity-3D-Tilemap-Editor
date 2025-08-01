@@ -3,7 +3,6 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using System.Collections.Generic;
-using TilemapEditor.Data;
 using TilemapEditor.Runtime;
 
 namespace TilemapEditor.Editor

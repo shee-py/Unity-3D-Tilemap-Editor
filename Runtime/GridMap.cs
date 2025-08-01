@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using TilemapEditor.Data;
+// Data classes are now in the same namespace
 using Sirenix.OdinInspector;
 
 namespace TilemapEditor.Runtime

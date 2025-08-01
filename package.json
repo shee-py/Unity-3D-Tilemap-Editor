@@ -1,6 +1,6 @@
 {
     "name": "com.ethan.tilemap-editor-3d",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "displayName": "3D Tilemap Editor",
     "description": "一个功能强大的Unity编辑器工具，用于快速创建和编辑3D瓦片地图。支持智能堆叠、多层编辑、撤销重做等功能。",
     "unity": "2021.3",

@@ -267,6 +267,34 @@ git clone https://github.com/shee-py/Unity-3D-Tilemap-Editor.git TilemapEditor
 - Unity引擎 - [Unity Technologies](https://unity.com/)
 - 图标资源来自 [Material Design Icons](https://materialdesignicons.com/)
 
+## 📁 包结构
+
+```
+TilemapEditor/
+├── package.json                    # 包配置文件
+├── README.md                       # 项目文档
+├── CHANGELOG.md                    # 变更日志
+├── LICENSE                         # MIT许可证
+├── Runtime/                        # 运行时代码
+│   ├── TilemapEditor.Runtime.asmdef
+│   ├── GridMap.cs                  # 核心网格地图组件
+│   ├── TileInfoComponent.cs        # 瓦片信息组件
+│   └── Data/                       # 数据类
+│       ├── TileData.cs             # 瓦片数据结构
+│       └── TilePalette.cs          # 瓦片库资源
+├── Editor/                         # 编辑器代码
+│   ├── TilemapEditor.Editor.asmdef
+│   ├── TilemapEditorWindow.cs      # 主编辑器窗口
+│   ├── AdvancedTools.cs            # 高级工具实现
+│   ├── SceneInteractionHandler.cs  # 场景交互处理
+│   ├── TilemapEditorWindow.uxml    # UI布局文件
+│   └── TilemapEditorWindow.uss     # UI样式文件
+├── Samples~/                       # 示例文件（Package Manager格式）
+│   └── BasicExamples/
+└── Documentation~/                 # 包文档
+    └── index.md
+```
+
 ---
 
 如果这个工具对你有帮助，请给个 ⭐ Star 支持一下！ 

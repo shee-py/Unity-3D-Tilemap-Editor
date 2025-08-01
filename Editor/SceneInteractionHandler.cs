@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEditor;
 using TilemapEditor.Runtime;
-using TilemapEditor.Data;
 
 namespace TilemapEditor.Editor
 {
