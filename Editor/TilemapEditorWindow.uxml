@@ -7,7 +7,7 @@
         <ui:Foldout text="Palette Selection" name="palette-foldout" class="section-foldout">
             <ui:HelpBox name="palette-help" text="请选择一个瓦片库来开始编辑" message-type="Info" />
             <uie:ObjectField label="瓦片库" name="palette-field"
-                type="TilemapEditor.Data.TilePalette, Assembly-CSharp-firstpass" />
+                type="TilemapEditor.Runtime.TilePalette, TilemapEditor.Runtime" />
             <ui:IntegerField label="当前选中瓦片索引" name="selected-tile-index" readonly="true" value="-1" />
         </ui:Foldout>
 
@@ -24,7 +24,7 @@
         <!-- Grid Map -->
         <ui:Foldout text="Grid Map" name="gridmap-foldout" class="section-foldout">
             <uie:ObjectField label="网格地图" name="gridmap-field"
-                type="TilemapEditor.Runtime.GridMap, Assembly-CSharp-firstpass" />
+                type="TilemapEditor.Runtime.GridMap, TilemapEditor.Runtime" />
             <ui:VisualElement name="gridmap-actions" class="button-group">
                 <ui:Button text="加载地图" name="load-map-btn" class="action-button" />
                 <ui:Button text="保存地图" name="save-map-btn" class="action-button" />
@@ -44,7 +44,7 @@
 
             <ui:HelpBox text="高级工具提供更复杂的绘制功能：油漆桶填充、矩形填充、直线绘制、圆形绘制" message-type="Info" />
             <uie:EnumField label="高级工具" name="advanced-tool-field"
-                type="TilemapEditor.Editor.AdvancedTool, Assembly-CSharp-Editor-firstpass" />
+                type="TilemapEditor.Editor.AdvancedTool, TilemapEditor.Editor" />
 
             <ui:HelpBox text="智能堆叠：开启后，绘制新瓦片时会自动检测下方瓦片并向上堆叠一层。关闭后，仅在当前编辑层级绘制。智能堆叠原理是射线检测，所以需要瓦片预制体包含Collider组件，如果瓦片预制体没有Collider组件，则请关闭这个功能" message-type="Info" />
             <ui:Toggle label="智能堆叠" name="smart-stacking-toggle" />
