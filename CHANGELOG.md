@@ -32,7 +32,7 @@
 - 将TileData和TilePalette类从TilemapEditor.Data移动到TilemapEditor.Runtime命名空间
 - 修复过时的API使用（FindObjectOfType → FindFirstObjectByType）
 
-## [1.0.0] - 2024-12-20
+## [1.0.0] - 2025-7-31
 
 ### 新增
 - 完整的撤销/重做支持

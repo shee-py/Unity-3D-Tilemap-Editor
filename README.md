@@ -6,6 +6,7 @@
 ![Language](https://img.shields.io/badge/Language-C%23-purple.svg)
 
 一个功能强大的Unity编辑器工具，用于快速创建和编辑3D瓦片地图。
+仅完全支持unity6或更新的版本，2022之前的可以使用，但是拾取器会有问题。
 
 ## 📋 目录
 - [功能特性](#功能特性)
@@ -205,6 +206,8 @@ A: 这些功能仅在Unity编辑器中可用。确保你在编辑器模式下查
 ---
 
 ## 安装方式
+
+⚠️ **注意**:此包依赖odin，请确保自己有odin再下载
 
 ### 方法1：直接下载
 1. 从 [Releases](../../releases) 页面下载最新的 `.unitypackage` 文件
